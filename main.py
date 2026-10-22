@@ -1,34 +1,39 @@
+import sys
 import itertools
-import pprint
 import math
 
 
-def parse_file(filename="./seq/test.seq") -> dict[str, dict[str, list[str]]]:
+def parse_file(filename="./seq/example.seq") -> dict[str, dict[str, list[str]]]:
     parsed = {}
 
-    with open(filename, "r") as f:
-        lines = f.readlines()
-        lines = [x.split() for x in lines if x != "\n"]
-        toks = list(itertools.chain.from_iterable(lines))
-        i = 0
-        while i < len(toks):
-            if toks[i] == "instance":
-                instance_name = toks[i + 1]
-                num_vars = int(toks[i + 2])
-                var_names = toks[i + 4:i + 4 + num_vars]
-                parsed[instance_name] = {}
-                parsed[instance_name]["vars"] = var_names
-                parsed[instance_name]["seqs"] = []
-                i = i + 4 + num_vars
-                num_seqs = int(toks[i])
-                i += 2
-                while num_seqs > 0:
+    try:
+        with open(filename, "r") as f:
+            lines = f.readlines()
+            lines = [x.split() for x in lines if x != "\n"]
+            toks = list(itertools.chain.from_iterable(lines))
+            i = 0
+            while i < len(toks):
+                if toks[i] == "instance":
+                    instance_name = toks[i + 1]
+                    num_vars = int(toks[i + 2])
+                    var_names = toks[i + 4:i + 4 + num_vars]
+                    parsed[instance_name] = {}
+                    parsed[instance_name]["vars"] = var_names
+                    parsed[instance_name]["seqs"] = []
+                    i = i + 4 + num_vars
+                    num_seqs = int(toks[i])
                     i += 2
-                    seq_len = int(toks[i])
-                    seq = [int(x) for x in toks[i + 1:i + 1 + seq_len]]
-                    parsed[instance_name]["seqs"].append(seq)
-                    i += seq_len + 1
-                    num_seqs -= 1
+                    while num_seqs > 0:
+                        i += 2
+                        seq_len = int(toks[i])
+                        seq = [int(x) for x in toks[i + 1:i + 1 + seq_len]]
+                        parsed[instance_name]["seqs"].append(seq)
+                        i += seq_len + 1
+                        num_seqs -= 1
+    except IOError as err:
+        print(f"{err}")
+        sys.exit(1)
+        
     return parsed
 
 
@@ -111,7 +116,7 @@ def algo1(seq: list, variables: list, num_dbcs: int, num_domains: int):
 
 
 def main():
-    parsed = parse_file("./seq/temp.seq")
+    parsed = parse_file("./seq/example.seq")
 
     for instance in parsed:
         print(f"instance: {instance}")
