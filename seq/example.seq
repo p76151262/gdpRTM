@@ -1,0 +1,6 @@
+instance example
+9 vars a b c d e f g h i
+
+1 seqs
+
+seq0 len 24 0 1 0 1 2 0 2 0 3 3 0 8 4 5 4 5 6 4 6 7 6 8 7 8
