@@ -1,4 +1,4 @@
-# Replication of the paper "[Generalized Data Placement Strategies for Racetrack Memories]([text](https://arxiv.org/abs/1912.03507))"
+# Replication of the paper "[Generalized Data Placement Strategies for Racetrack Memories](https://arxiv.org/abs/1912.03507)"
 
 ## Setup
 
