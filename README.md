@@ -1,5 +1,24 @@
 # Replication of the paper "[Generalized Data Placement Strategies for Racetrack Memories]([text](https://arxiv.org/abs/1912.03507))"
 
+## Setup
+
+```bash
+git clone --recurse-submodules <url>
+```
+
+If you cloned w/o `--recurse-submodules`, please do the follwoing to correctly clone the submodule as well:
+
+```bash
+cd gdpRTM
+git submodule update --init --recursive
+```
+
+If you need to update the submodule:
+
+```bash
+git submodule update --remote --merge
+```
+
 ## RTSim
 
 Prerequisites
@@ -10,7 +29,7 @@ Prerequisites
 
 Build RTSim, which utilizes `scons` and `gcc-11`
 
-```
+```bash
 make rtsim
 ```
 
@@ -18,7 +37,11 @@ The executable is at `./RTSim/nvmain.fast`
 
 ## Usage
 
-The `main.py` is the implementation of the algorithm in the paper, execute it by `python ./main.py`, no extra dependencies needed.
+The `main.py` is the implementation of the algorithm in the paper, execute it by the following command, no extra dependencies needed.
+
+```bash
+python ./main.py
+```
 
 ## TODOs
 
