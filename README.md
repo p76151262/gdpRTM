@@ -27,7 +27,9 @@ Prerequisites
 - `gcc-11`
 - `python`
 
-Build RTSim, which utilizes `scons` and `gcc-11`
+Make sure that `g++-11` is in your `$PATH`, or modify the `RTSIM_CXX` parameter in `Makefile` to the path of your `g++-11` executable.
+
+Build RTSim, which utilizes `scons` and `g++-11`:
 
 ```bash
 make rtsim
