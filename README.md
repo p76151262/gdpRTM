@@ -39,10 +39,25 @@ The executable is at `./RTSim/nvmain.fast`
 
 ## Usage
 
-The `main.py` is the implementation of the algorithm in the paper, execute it by the following command, no extra dependencies needed.
+Run from the project directory to compare AFD-OFU and DMA-OFU. No extra dependencies are needed.
 
 ```bash
 python ./main.py
+```
+
+For `seq/example.seq`, the total shift costs are:
+
+```text
+AFD-OFU: 21 shifts
+DMA-OFU: 9 shifts
+```
+
+These are Python single-port, lazy model results with free first alignment per DBC.
+
+Run tests:
+
+```bash
+python -m unittest -v
 ```
 
 ## TODOs
@@ -55,9 +70,9 @@ python ./main.py
 - [x] AFD-OFU
   - [x] AFD
   - [x] OFU
-- [ ] DMA-OFU
+- [x] DMA-OFU
   - [x] DMA
-  - [ ] OFU
+  - [x] OFU
 - [ ] DMA-Chen
   - [x] DMA
   - [ ] Chen
