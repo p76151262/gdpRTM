@@ -52,9 +52,9 @@ python ./main.py
 - [x] Main logics of Algorithm 1 (DMA)
 - [ ] [Chen](https://ieeexplore.ieee.org/document/7445241)'s S-DBC-P algorithm for intra-DBC placement of variables in $V_{ndj}$
 - [ ] [ShiftReduce](https://arxiv.org/abs/1903.03597) algorithm for same purpose of the Chen's algorithm
-- [ ] AFD-OFU
-  - [ ] AFD
-  - [ ] OFU
+- [x] AFD-OFU
+  - [x] AFD
+  - [x] OFU
 - [ ] DMA-OFU
   - [x] DMA
   - [ ] OFU
